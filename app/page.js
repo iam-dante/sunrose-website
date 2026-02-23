@@ -42,7 +42,6 @@ export default function Home() {
         <div className="z-10 flex flex-col sm:flex-row gap-4 items-center">
           <WipeButton
             href="https://github.com/iam-dante/release-sunrose/raw/main/sunrose/Sunrose-1.0.0-arm64.dmg"
-            external
             className="py-5 px-8 border-black hover:text-white"
           >
             Download
