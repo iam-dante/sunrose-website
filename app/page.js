@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import TypewriterHero from "./components/TypewriterHero";
-import BreathingRing from "./components/BreathingRing";
+import DriftingParticles from "./components/DriftingParticles";
 import WipeButton from "./components/WipeButton";
 import AboutModal from "./components/AboutModal";
 
@@ -17,8 +17,8 @@ export default function Home() {
       {/* Background motions */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-motion opacity-30" />
-        <div className="absolute inset-0 flex items-center justify-center opacity-15">
-          <BreathingRing />
+        <div className="absolute inset-0">
+          <DriftingParticles />
         </div>
       </div>
 
@@ -36,7 +36,7 @@ export default function Home() {
         </div>
 
         <p className="font-display text-lg md:text-xl italic tracking-tight text-black mb-10 text-center">
-          Record your screen. Get instant AI insights.
+          focus on what matters.
         </p>
 
         <div className="z-10 flex flex-col sm:flex-row gap-4 items-center">

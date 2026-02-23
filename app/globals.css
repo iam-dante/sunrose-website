@@ -132,6 +132,30 @@ a {
   }
 }
 
+/* Drifting particles - gentle floating dots */
+.drift-particle {
+  animation: drift-particle 15s ease-in-out infinite;
+}
+
+@keyframes drift-particle {
+  0%, 100% {
+    transform: translate(0, 0);
+    opacity: 0.7;
+  }
+  25% {
+    transform: translate(40px, -30px);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translate(-25px, 35px);
+    opacity: 0.6;
+  }
+  75% {
+    transform: translate(20px, 15px);
+    opacity: 0.8;
+  }
+}
+
 /* 4. Sine Waveform Bars */
 .waveform-container {
   display: flex;
