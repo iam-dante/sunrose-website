@@ -1,0 +1,283 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #ffffff;
+  --fg: #000000;
+  --muted: #666666;
+  --border: #e5e5e5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--bg);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-display), Georgia, serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Typography globals */
+.font-mono {
+  font-family: var(--font-mono), monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Animations */
+
+/* 1. Typewriter Hero Cursor */
+.typewriter-cursor::after {
+  content: "█";
+  animation: blink 1s step-end infinite;
+  display: inline-block;
+  margin-left: 8px;
+  vertical-align: bottom;
+}
+
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+/* 2. Hero Underline Draw */
+.underline-draw {
+  position: relative;
+  display: inline-block;
+}
+
+.underline-draw-line {
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  height: 4px;
+  background: var(--fg);
+  animation: draw-line 1s ease-out forwards;
+  transform-origin: left;
+  transform: scaleX(0);
+}
+
+@keyframes draw-line {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* 3. Breathing Pulse Ring */
+.pulse-ring {
+  position: relative;
+  border-radius: 50%;
+  border: 1px solid var(--fg);
+  animation: pulse-ring 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+    border-width: 2px;
+  }
+
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+    border-width: 1px;
+  }
+}
+
+/* Gradient motion background */
+.bg-gradient-motion {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.03) 0%,
+    rgba(0, 0, 0, 0.06) 25%,
+    rgba(0, 0, 0, 0.02) 50%,
+    rgba(0, 0, 0, 0.05) 75%,
+    rgba(0, 0, 0, 0.03) 100%
+  );
+  background-size: 400% 400%;
+  animation: gradient-shift 15s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* 4. Sine Waveform Bars */
+.waveform-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 4px;
+  height: 60px;
+}
+
+.waveform-bar {
+  width: 4px;
+  background: var(--fg);
+  animation: waveform-sine 1.2s ease-in-out infinite alternate;
+  transform-origin: bottom;
+}
+
+@keyframes waveform-sine {
+  0% {
+    transform: scaleY(0.1);
+  }
+
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+/* 5. Screen Scanline Sweep */
+.scanline-sweep {
+  position: relative;
+  overflow: hidden;
+}
+
+.scanline-sweep::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--fg);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  animation: sweep 3s linear infinite;
+  z-index: 10;
+}
+
+@keyframes sweep {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(1000%);
+  }
+}
+
+/* 6. Ticker scroll */
+.ticker-wrap {
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.ticker-inner {
+  display: inline-block;
+  padding-left: 100%;
+  animation: ticker 25s linear infinite;
+}
+
+@keyframes ticker {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+/* 7. Button Hover (White Wipe Left to Right) */
+.btn-wipe {
+  position: relative;
+  overflow: hidden;
+  transition: color 0.15s ease;
+  border: 1px solid var(--fg);
+  color: var(--fg);
+  background: transparent;
+  z-index: 1;
+}
+
+.btn-wipe::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: var(--fg);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.15s cubic-bezier(0.19, 1, 0.22, 1);
+  z-index: -1;
+}
+
+.btn-wipe:hover {
+  color: var(--bg);
+}
+
+.btn-wipe:hover::before {
+  transform: scaleX(1);
+}
+
+/* 8. Scroll Reveal Fade Up */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Utility for overlapping sections */
+.overlap-section {
+  position: relative;
+  margin-top: -40px;
+  border-top: 1px solid var(--fg);
+  background: var(--bg);
+  z-index: 10;
+}
+
+.inverted-section {
+  background: var(--fg);
+  color: var(--bg);
+}
+
+.inverted-section .btn-wipe {
+  border-color: var(--bg);
+  color: var(--bg);
+}
+
+.inverted-section .btn-wipe::before {
+  background: var(--bg);
+}
+
+.inverted-section .btn-wipe:hover {
+  color: var(--fg);
+}
