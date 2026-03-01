@@ -74,7 +74,7 @@ export default function Home() {
   const [selectedModel, setSelectedModel] = useState(0);
 
   return (
-    <main className="surose-page relative flex h-dvh min-h-screen w-full items-center justify-center overflow-hidden px-4 py-6 text-black selection:bg-black selection:text-white md:px-8">
+    <main className="surose-page relative flex h-dvh min-h-screen w-full items-center justify-center overflow-hidden px-4 py-6 text-black selection:bg-blue-600 selection:text-white md:px-8">
       <AboutModal isOpen={aboutOpen} onClose={() => setAboutOpen(false)} />
 
       <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
@@ -82,7 +82,7 @@ export default function Home() {
         <div className="surose-soft-light absolute inset-0" />
       </div>
 
-      <section className="relative z-10 mx-auto grid w-full max-w-6xl gap-4 rounded-[2rem] border border-black/15 bg-white/70 p-4 shadow-[0_24px_90px_rgba(0,0,0,0.16)] backdrop-blur-xl md:grid-cols-[1fr_1fr] md:gap-8 md:p-8">
+      <section className="relative z-10 mx-auto grid w-full max-w-6xl gap-4 rounded-[2rem] border border-white/70 bg-white/60 p-4 shadow-[0_24px_80px_rgba(0,0,0,0.12),0_0_0_1px_rgba(255,255,255,0.5)_inset] backdrop-blur-2xl md:grid-cols-[1fr_1fr] md:gap-8 md:p-8">
         <div className="flex flex-col justify-between">
           <header className="mb-6 flex items-center justify-between">
             <div className="inline-flex items-center gap-3">
@@ -101,10 +101,10 @@ export default function Home() {
 
           <div>
             <p className="surose-kicker">Screen Intelligence Assistant</p>
-            <h1 className="surose-headline font-display max-w-[14ch] text-5xl leading-[0.92] tracking-tight text-black md:text-7xl">
+            <h1 className="surose-headline font-display max-w-[14ch] text-5xl leading-[0.94] tracking-tight text-black md:text-[5.5rem]">
               Focus faster. Decide sharper.
             </h1>
-            <p className="mt-4 max-w-xl text-base leading-relaxed text-black/70 md:text-lg">
+            <p className="mt-5 max-w-md text-base font-[450] leading-relaxed text-black/65 md:text-[1.05rem]">
               Sunrose turns what you see and say into clear next actions, so
               you can move from confusion to execution in one step.
             </p>
@@ -233,9 +233,8 @@ export default function Home() {
                         <button
                           key={option}
                           type="button"
-                          className={`surose-menu-item ${
-                            selectedWhisper === index ? "is-active" : ""
-                          }`}
+                          className={`surose-menu-item ${selectedWhisper === index ? "is-active" : ""
+                            }`}
                           onClick={() => {
                             setSelectedWhisper(index);
                             setWhisperOpen(false);
@@ -269,9 +268,8 @@ export default function Home() {
                         <button
                           key={option}
                           type="button"
-                          className={`surose-menu-item ${
-                            selectedModel === index ? "is-active" : ""
-                          } ${option === "Gemini 3 Flash (Preview)" ? "is-highlight" : ""}`}
+                          className={`surose-menu-item ${selectedModel === index ? "is-active" : ""
+                            } ${option === "Gemini 3 Flash (Preview)" ? "is-highlight" : ""}`}
                           onClick={() => {
                             setSelectedModel(index);
                             setModelOpen(false);
@@ -334,13 +332,12 @@ export default function Home() {
             ) : null}
           </div>
 
-          <div className="mt-6 rounded-xl border border-black/10 bg-black px-4 py-4 text-white">
-            <p className="font-mono text-[10px] uppercase tracking-[0.17em] text-white/65">
-              status
+          <div className="mt-5 rounded-2xl border border-white/8 bg-[#0f1117] px-5 py-4 text-white">
+            <p className="font-mono text-[9px] font-bold uppercase tracking-[0.22em] text-white/40">
+              Why Sunrose
             </p>
-            <p className="mt-2 text-sm leading-relaxed text-white/90">
-              No subscription. Bring your own API keys and use the app right
-              away on macOS.
+            <p className="mt-2 text-[0.88rem] font-medium leading-relaxed text-white/80">
+              No subscription. Bring your own API keys and use the app right away on macOS free forever.
             </p>
           </div>
         </div>
